@@ -22,6 +22,7 @@
     "express": "^4.17.1",
     "libphonenumber-js": "^1.7.58",
     "mongoose": "^5.10.6",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "twilio": "^3.49.3"
   }
 }

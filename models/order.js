@@ -6,25 +6,14 @@ const orderSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-   
     phoneNumber:{
         type: String,
         required: true,
-        validate: function validate(value){
-        const phone = phoneNumberLib.parsePhoneNumberFromString(value)
-        console.log(value)
-      //  console.log(phone.formatInternational())
-    }
-      /*  validate: function validate(value){
-            const phone = phoneNumberLib.parsePhoneNumberFromString(value)
-            if(!phone.isValid()){
-                    throw new Error('Please, Enter a Valid Phone Number')
-            }
-           // console.log(phone.formatInternational())
-
-            
-        } */
-    },
+        validate: function validate (value){
+            const regex = new RegExp(/^\+201(0|1|2|5)\d{8}$/)
+            if(!regex.test(value)){throw new Error('Invalid Phone Number')}
+        }
+    },    
     address:{
         type:String,
         required: true
