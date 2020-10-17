@@ -29,6 +29,10 @@ const orderSchema = new mongoose.Schema({
     price:{
         type: Number,
         required: true
+    },
+    checked:{
+        type: Boolean,
+        default: false
     }
 })
 
