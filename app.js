@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+const cors = require('cors')
 const express = require('express')
 const app = express()
 
@@ -15,13 +15,13 @@ app.use(orderRouter)
 
 app.listen(port, () => { console.log( `Server Is Up ON ${port}` )})
 
-app.use((req,res,next)=>{
-    res.setHeader("Access-Control-Allow-Origin","*");
-    res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With,Content-Type,Accept"
-    );
-    res.setHeader("Access-Control-Allow-Methods","GET,POST,PATCH,DELETE,PUT,OPTIONS");
-    next();
-})
- 
+// app.use((req,res,next)=>{
+//     res.setHeader("Access-Control-Allow-Origin","*");
+//     res.setHeader(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With,Content-Type,Accept"
+//     );
+//     res.setHeader("Access-Control-Allow-Methods","GET,POST,PATCH,DELETE,PUT,OPTIONS");
+//     next();
+// })
+app.use(cors())
